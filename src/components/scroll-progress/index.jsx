@@ -10,13 +10,13 @@ const ScrollProgress = ({styles, position, className, backgroundColor, barSize})
     let xAxisStyle = {
       left: 0,
       right:0,
-      width: progress + '%',
+      width: `${progress}%`,
       height: barSize,
     };
     let yAxisStyle = {
       top: 0,
       width: barSize,
-      height: progress + '%',
+      height: `${progress}%`,
     }
     switch (position) {
       case 'top':
