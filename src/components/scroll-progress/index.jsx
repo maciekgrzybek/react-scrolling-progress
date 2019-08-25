@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const ScrollProgress = ({styles, position}) => {
+const ScrollProgress = ({styles, position, className, backgroundColor, barSize}) => {
 
   const [progress, setScrollProgress] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(0);
