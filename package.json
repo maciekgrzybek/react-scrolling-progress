@@ -10,6 +10,9 @@
     "lint": "neutrino lint",
     "test": "neutrino test"
   },
+  "dependencies": {
+    "react": "^16.9.0"
+  },
   "devDependencies": {
     "@neutrinojs/airbnb": "^8.3.0",
     "@neutrinojs/jest": "^8.3.0",
