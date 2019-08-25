@@ -78,7 +78,7 @@ const ScrollProgress = ({styles, position, className, backgroundColor, barSize})
   }
 
   const updateWindowHeight = () => {
-		setHeight(document.documentElement.clientHeight);
+		setViewportHeight(document.documentElement.clientHeight);
 	}
 
   const setProgress = () => {
@@ -86,7 +86,7 @@ const ScrollProgress = ({styles, position, className, backgroundColor, barSize})
     const body = document.body;
     const scrollTop = html.scrollTop || body.scrollTop;
     const scrollHeight = html.scrollHeight || body.scrollHeight;
-    const percent = (scrollTop / (scrollHeight - height)) * 100;
+    const percent = (scrollTop / (scrollHeight - viewportHeight)) * 100;
 		setScrollProgress(percent);
   }
 
