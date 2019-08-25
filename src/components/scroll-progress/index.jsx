@@ -64,7 +64,6 @@ const ScrollProgress = ({styles, position, className, backgroundColor, barSize})
   });
 
   useEffect(() => {
-    console.log('hehe')
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize)
   }, [])
