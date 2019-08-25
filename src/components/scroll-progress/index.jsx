@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+
+import {throttle} from './helpers/throttle';
 
 const ScrollProgress = ({styles, position, className, backgroundColor, barSize}) => {
 
@@ -60,12 +62,12 @@ const ScrollProgress = ({styles, position, className, backgroundColor, barSize})
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', throttle(handleScroll, 300), false);
   });
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', throttle(handleResize,300), false);
   }, [])
 
   const handleScroll = () => {
@@ -90,15 +92,7 @@ const ScrollProgress = ({styles, position, className, backgroundColor, barSize})
 		setScrollProgress(percent);
   }
 
-  return (
-    <div style={{
-      height: 3000,
-      background: 'yellow',
-    }}
-    >
-      <div className={className} style={ progressBarStyle }></div>
-    </div>
-  );
+  return <div className={className} style={ progressBarStyle }></div>;
 };
 
 ScrollProgress.defaultProps = {
