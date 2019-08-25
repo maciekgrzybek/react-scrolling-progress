@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 
 const ScrollProgress = ({styles, position}) => {
 
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [progress, setScrollProgress] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(0);
 
   let progressBarStyle = {
     background: 'red',
