@@ -1,6 +1,6 @@
 module.exports = {
   use: [
-    '@neutrinojs/airbnb',
+    // '@neutrinojs/airbnb',
     '@neutrinojs/react-components',
     '@neutrinojs/jest'
   ]
