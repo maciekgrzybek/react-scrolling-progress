@@ -1,8 +1,24 @@
 {
-  "name": "react-scroll-progress",
+  "name": "react-scrolling-progress",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "React Component for showing scrolling progress on the page.",
+  "main": "build/scroll-progress.js",
   "author": "Maciek Grzybek <maciekgrzybek1@gmail.com>",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/maciekgrzybek/react-scrolling-progress"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "component",
+    "progress",
+    "bar",
+    "scrolling",
+    "scroll",
+    "animation",
+    "animate"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "neutrino build",
@@ -10,13 +26,16 @@
     "lint": "neutrino lint",
     "test": "neutrino test"
   },
+  "dependencies": {
+    "@neutrinojs/eslint": "^8.3.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
   "devDependencies": {
     "@neutrinojs/airbnb": "^8.3.0",
     "@neutrinojs/jest": "^8.3.0",
     "@neutrinojs/react-components": "^8.3.0",
-    "neutrino": "^8.3.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "neutrino": "^8.3.0"
   }
 }

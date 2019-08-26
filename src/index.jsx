@@ -1,11 +1,17 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { render } from 'react-dom';
-import HelloWorld from './components/HelloWorld';
+import ScrollProgress from './components/scroll-progress';
 
 const root = document.getElementById('root');
 
 render(
   (
-    <HelloWorld />
+    <div style={{
+      height: 3000,
+      background: 'lightpink',
+    }}
+    >
+      <ScrollProgress />
+    </div>
   ), root,
 );
