@@ -1,6 +1,6 @@
 {
   "name": "react-scrolling-progress",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React Component for showing scrolling progress on the page.",
   "main": "build/scroll-progress.js",
   "author": "Maciek Grzybek <maciekgrzybek1@gmail.com>",
