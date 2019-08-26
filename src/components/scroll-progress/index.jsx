@@ -101,7 +101,7 @@ ScrollProgress.defaultProps = {
   position: 'top',
   className: 'progress-bar',
   backgroundColor: 'black',
-  barSize: 45,
+  barSize: 20,
 };
 
 ScrollProgress.propTypes = {
