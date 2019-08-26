@@ -4,6 +4,21 @@
   "description": "React Component for showing scrolling progress on the page.",
   "main": "build/scroll-progress.js",
   "author": "Maciek Grzybek <maciekgrzybek1@gmail.com>",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/maciekgrzybek/react-scrolling-progress"
+  },
+  "keywords": [
+    "react",
+    "javascript",
+    "component",
+    "progress",
+    "bar",
+    "scrolling",
+    "scroll",
+    "animation",
+    "animate"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "neutrino build",
