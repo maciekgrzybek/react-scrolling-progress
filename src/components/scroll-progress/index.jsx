@@ -63,7 +63,8 @@ const ScrollProgress = ({
 
   const setProgress = () => {
     const html = document.documentElement;
-    const { body } = document.body;
+    // eslint-disable-next-line prefer-destructuring
+    const body = document.body;
     const scrollTop = html.scrollTop || body.scrollTop;
     const scrollHeight = html.scrollHeight || body.scrollHeight;
     const percent = (scrollTop / (scrollHeight - viewportHeight)) * 100;
