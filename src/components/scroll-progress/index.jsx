@@ -77,22 +77,24 @@ const ScrollProgress = ({
   }, []);
 
   const handleScroll = () => {
-    setProgress();
+    throttle(setProgress, 300)();
   };
 
   const handleResize = () => {
-    updateWindowHeight();
-    setProgress();
+    throttle(() => {
+      updateWindowHeight();
+      setProgress();
+    }, 300)();
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', throttle(handleScroll, 300), false);
+    window.addEventListener('scroll', handleScroll, false);
+    return () => window.removeEventListener('scroll', handleScroll, false);
   });
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', throttle(handleResize, 300), false);
+    return () => window.removeEventListener('resize', handleResize, false);
   }, []);
   return <div className={className} style={progressBarStyle} />;
 };
