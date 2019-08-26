@@ -1,64 +1,88 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import {throttle} from './helpers/throttle';
+import throttle from './helpers/throttle';
 
-const ScrollProgress = ({styles, position, className, backgroundColor, barSize}) => {
-
+const ScrollProgress = ({
+  styles, position, className, backgroundColor, barSize,
+}) => {
   const [progress, setScrollProgress] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(0);
 
   const setDynamicStyles = () => {
-    let xAxisStyle = {
+    const xAxisStyle = {
       left: 0,
-      right:0,
+      right: 0,
       width: `${progress}%`,
       height: barSize,
     };
-    let yAxisStyle = {
+    const yAxisStyle = {
       top: 0,
       width: barSize,
       height: `${progress}%`,
-    }
+    };
+
     switch (position) {
       case 'top':
         return {
           top: 0,
-          ...xAxisStyle
-        }
+          ...xAxisStyle,
+        };
       case 'bottom':
         return {
           bottom: 0,
-          ...xAxisStyle
-        }
+          ...xAxisStyle,
+        };
       case 'left':
         return {
           left: 0,
-          ...yAxisStyle
-        }
+          ...yAxisStyle,
+        };
       case 'right':
         return {
           right: 0,
-          ...yAxisStyle
-        }
+          ...yAxisStyle,
+        };
       default:
-        return;
+        return {};
     }
-  }
+  };
 
-  let progressBarStyle = {
+  const progressBarStyle = {
     background: backgroundColor,
     position: 'fixed',
     transition: 'all .2s ease-out',
     zIndex: 999,
     ...setDynamicStyles(),
     ...styles,
-  }
-  
+  };
+
+  const updateWindowHeight = () => {
+    setViewportHeight(document.documentElement.clientHeight);
+  };
+
+  const setProgress = () => {
+    const html = document.documentElement;
+    const { body } = document.body;
+    const scrollTop = html.scrollTop || body.scrollTop;
+    const scrollHeight = html.scrollHeight || body.scrollHeight;
+    const percent = (scrollTop / (scrollHeight - viewportHeight)) * 100;
+    setScrollProgress(percent);
+  };
+
   useEffect(() => {
     updateWindowHeight();
     setProgress();
-  }, [])
+  }, []);
+
+  const handleScroll = () => {
+    setProgress();
+  };
+
+  const handleResize = () => {
+    updateWindowHeight();
+    setProgress();
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -67,32 +91,9 @@ const ScrollProgress = ({styles, position, className, backgroundColor, barSize})
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', throttle(handleResize,300), false);
-  }, [])
-
-  const handleScroll = () => {
-    setProgress();
-  }
-  
-  const handleResize = () => {
-    updateWindowHeight();
-    setProgress();
-  }
-
-  const updateWindowHeight = () => {
-		setViewportHeight(document.documentElement.clientHeight);
-	}
-
-  const setProgress = () => {
-    const html = document.documentElement;
-    const body = document.body;
-    const scrollTop = html.scrollTop || body.scrollTop;
-    const scrollHeight = html.scrollHeight || body.scrollHeight;
-    const percent = (scrollTop / (scrollHeight - viewportHeight)) * 100;
-		setScrollProgress(percent);
-  }
-
-  return <div className={className} style={ progressBarStyle }></div>;
+    return () => window.removeEventListener('resize', throttle(handleResize, 300), false);
+  }, []);
+  return <div className={className} style={progressBarStyle} />;
 };
 
 ScrollProgress.defaultProps = {
@@ -104,7 +105,11 @@ ScrollProgress.defaultProps = {
 };
 
 ScrollProgress.propTypes = {
-  styles: PropTypes.object,
+
+  styles: PropTypes.oneOf([
+    PropTypes.objectOf(PropTypes.number),
+    PropTypes.objectOf(PropTypes.string),
+  ]),
   position: PropTypes.oneOf([
     'top',
     'bottom',

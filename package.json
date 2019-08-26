@@ -12,15 +12,15 @@
     "test": "neutrino test"
   },
   "dependencies": {
-    "react": "^16.9.0"
+    "@neutrinojs/eslint": "^8.3.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "@neutrinojs/airbnb": "^8.3.0",
     "@neutrinojs/jest": "^8.3.0",
     "@neutrinojs/react-components": "^8.3.0",
-    "neutrino": "^8.3.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "neutrino": "^8.3.0"
   }
 }

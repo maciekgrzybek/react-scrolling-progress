@@ -11,7 +11,7 @@ function throttle(fn, timeout) {
 
     setTimeout(() => {
       ready = true;
-    }, timeout)
-  }
+    }, timeout);
+  };
 }
-export {throttle};
+export default throttle;
