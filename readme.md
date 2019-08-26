@@ -4,9 +4,13 @@ This is a simple React component that allows you to show a scrolling progress ba
 
 ## Installation
 With Yarn:
+
 ```yarn add react-scrolling-progress```
+
 With NPM:
+
 ```npm i react-scrolling-progress```
+
 
 ## Usage
 ### Default
