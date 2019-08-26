@@ -108,11 +108,8 @@ ScrollProgress.defaultProps = {
 };
 
 ScrollProgress.propTypes = {
-
-  styles: PropTypes.oneOf([
-    PropTypes.objectOf(PropTypes.number),
-    PropTypes.objectOf(PropTypes.string),
-  ]),
+  // eslint-disable-next-line react/forbid-prop-types
+  styles: PropTypes.object,
   position: PropTypes.oneOf([
     'top',
     'bottom',
