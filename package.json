@@ -5,8 +5,8 @@
   "main": "build/scroll-progress.js",
   "author": "Maciek Grzybek <maciekgrzybek1@gmail.com>",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/maciekgrzybek/react-scrolling-progress"
+    "type": "git",
+    "url": "https://github.com/maciekgrzybek/react-scrolling-progress"
   },
   "keywords": [
     "react",
@@ -24,7 +24,7 @@
     "build": "neutrino build",
     "start": "neutrino start",
     "lint": "neutrino lint",
-    "test": "neutrino test"
+    "test": "neutrino test --watch"
   },
   "dependencies": {
     "@neutrinojs/eslint": "^8.3.0",
