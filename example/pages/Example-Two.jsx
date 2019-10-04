@@ -5,7 +5,7 @@ import ScrollProgress from 'react-scrolling-progress';
 import Header from '../components/Header';
 import Article from '../components/Article';
 
-export default function Index() {
+export default function ExampleTwo() {
   return (
     <div>
       <ScrollProgress />
